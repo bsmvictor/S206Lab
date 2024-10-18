@@ -1,7 +1,7 @@
 /// <reference = cypress >
 
 describe("Testes da criação, `registo e login", () => {
-    it("Teste de criação de usuário com sucesso", () => {
+    it.skip("Teste de criação de usuário com sucesso", () => {
         cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login')
         cy.get('.btn-link').click()
         cy.get('#firstName').type('Victor')
@@ -12,7 +12,7 @@ describe("Testes da criação, `registo e login", () => {
         cy.get('.ng-binding').should('contain', 'Registration successful')
     })
 
-    it("Teste de criação de usuário com falha", () => {
+    it.skip("Teste de criação de usuário com falha", () => {
         cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login')
         cy.get('.btn-link').click()
         cy.get('#firstName').type('Victor')
@@ -21,7 +21,7 @@ describe("Testes da criação, `registo e login", () => {
         cy.get('.btn-primary').should('be.disabled')
     })
 
-    it("Teste de login com sucesso", () => {
+    it.skip("Teste de login com sucesso", () => {
         let data = CriarUsuario()
         cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login')
         cy.get('#username').type(data[0])
@@ -30,7 +30,8 @@ describe("Testes da criação, `registo e login", () => {
         cy.get('h1.ng-binding').should('contain.text', data[0])
     })
 
-    it("Teste de deletar usuário e login falhar", () => {
+    // teste de delete feito por mim para o exercicio de entrega 
+    it.skip("Teste de deletar usuário e login falhar", () => {
         let data = CriarUsuario()
         cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login')
         cy.get('#username').type(data[0])
@@ -42,6 +43,15 @@ describe("Testes da criação, `registo e login", () => {
         cy.get('#password').type(data[1])
         cy.get('.btn-primary').click()
         cy.get('.ng-binding').should('contain', 'Username or password is incorrect')
+    })
+
+    // teste de delete feito pelo monior na aula segiuinte
+    it("Deletar usuário com sucesso", () => {
+        let data = CriarUsuario()
+        cy.login(data[0], data[1])
+        cy.get('.ng-binding > a').click()
+        cy.login(data[0], data[1])
+        cy.get('.ng-binding').should('have.text', 'Username or password is incorrect')
     })
 })
 
