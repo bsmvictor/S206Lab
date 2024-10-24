@@ -1,29 +1,32 @@
 # Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-package-lock.json
-yarn.lock
+/node_modules/
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
+/package-lock.json
+/yarn.lock
+/package.json
+/package-lock.json
 
 # Cypress
-cypress/screenshots/
-cypress/videos/
+/cypress/screenshots/
+/cypress/videos/
+/cypress.config.json
 
 # Cypress coverage (se você estiver usando cobertura de testes)
-coverage/
+/coverage/
 
 # Logs
 logs
 *.log
 
 # Compiled source
-dist/
-build/
+/dist/
+/build/
 
 # Editor e Sistema Operacional
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
+/.DS_Store
+/Thumbs.db
+/.idea/
+/.vscode/
 *.swp
